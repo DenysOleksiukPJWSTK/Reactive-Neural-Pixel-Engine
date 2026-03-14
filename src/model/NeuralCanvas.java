@@ -53,5 +53,27 @@ public class NeuralCanvas {
             Arrays.fill(pixels, color);
         }
 
+        public void floodFill(int x,int y,int targetColor){
+            if (x < 0 || x >= width || y < 0 || y >= height) return;
+
+            int startColor = getColor(x, y);
+            if (startColor == targetColor) return;
+
+            fill(x,y,startColor,targetColor);
+        }
+
+        private void fill(int x,int y,int startColor,int targetColor){
+            if (x < 0 || x >= width || y < 0 || y >= height) return;
+            if (getColor(x, y) != startColor) return;
+
+            setPixel(x,y,targetColor);
+
+            fill(x+1,y,startColor,targetColor);
+            fill(x-1,y,startColor,targetColor);
+            fill(x,y+1,startColor,targetColor);
+            fill(x,y-1,startColor,targetColor);
+
+        }
+
     }
 }
