@@ -41,7 +41,6 @@ public class NeuralCanvas {
         if (y < 0) throw new IllegalArgumentException("y cannot be negative. | y:" + y);
         if (x >= width) throw  new IllegalArgumentException("x cannot be greater width. | x:" + x);
         if (y >= height) throw  new IllegalArgumentException("y cannot be greater height . | y:" + y);
-        if (color < 0) throw new IllegalArgumentException("color cannot be negative. | color:" + color);
 
         pixels[getIndex(x, y)] = BitwiseColorUtils.blend(pixels[getIndex(x, y)], color);
     }
@@ -49,7 +48,6 @@ public class NeuralCanvas {
     public class RenderContext{
 
         public void clear(int color) {
-            if (color < 0) throw new IllegalArgumentException("color cannot be negative. | color:" + color);
             Arrays.fill(pixels, color);
         }
 

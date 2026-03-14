@@ -1,0 +1,11 @@
+package app;
+
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new AppWindow(100,100);
+        });
+    }
+}

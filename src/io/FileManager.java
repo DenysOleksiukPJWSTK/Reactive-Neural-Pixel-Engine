@@ -1,5 +1,6 @@
 package io;
 
+import exception.SaveToBinaryException;
 import model.NeuralCanvas;
 
 import java.io.DataOutputStream;
@@ -8,7 +9,7 @@ import java.io.IOException;
 
 public class FileManager {
 
-    public void saveToBinary(NeuralCanvas canvas,String path){
+    public void saveToBinary(NeuralCanvas canvas,String path) throws SaveToBinaryException {
 
         try(DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(path))) {
 
@@ -21,9 +22,8 @@ public class FileManager {
 
 
         }catch (IOException e){
-            e.printStackTrace();
+            throw new SaveToBinaryException("Error saving: " + e.getMessage());
         }
-
     }
 
 
