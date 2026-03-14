@@ -25,6 +25,17 @@ public class NeuralCanvas {
         return y * width + x;
     }
 
+    public int getColor(int x, int y) {
+        return pixels[y * width + x];
+    }
+
+    public int getWidth() {
+        return width;
+    }
+    public int getHeight() {
+        return height;
+    }
+
     public void setPixel(int x, int y, int color) {
         if (x < 0) throw new IllegalArgumentException("x cannot be negative. | x:" + x);
         if (y < 0) throw new IllegalArgumentException("y cannot be negative. | y:" + y);
